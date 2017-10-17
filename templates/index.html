@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}<title>Spared</title>{% endblock %}
+{% block css %}<link rel="stylesheet"  href="{% static 'css/style.css' %}">{% endblock %}
+{% block script %}<script src="{% static 'js/style.js' %}"></script>{% endblock %}
+
+{% block content %}
+<h1>
+    <span class="blue">&lt;</span>
+        Table
+    <span class="blue">&gt;</span>
+    <span class="yellow">Equipment</span>
+</h1>
+<h2>
+    Get <a href="/tobuy/"target="_blank">/tobuy</a>
+</h2>
+<table class="container">
+    <thead>
+        <tr>
+            <th></th>
+            <th>arrive</th>
+            <th>count</th>
+            <th>mustbe</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for d_key, d_value in data.items %}
+        <tr>
+            <td>{{ d_key }}</td>
+            {% for key, value in d_value.items %}
+                <td>{{ value }}</td>
+            {% endfor %}
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
